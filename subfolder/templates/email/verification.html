@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            width: 100%;
+        }
+
+        .company-logo {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .company-logo img {
+            width: 12rem;
+        }
+
+        .content .otp {
+            font-size: 2rem;
+            margin: 1.3rem 0;
+            text-align: center;
+            font-weight: 600;
+            background-color: rgb(220,220,220);
+            padding: 12px 0;
+        }
+
+        .content a button {
+            cursor: pointer;
+            background-color: hsl(200, 100%, 55%);
+            border: none;
+            box-shadow: 0 10px 10px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            font-weight: 600;
+            padding: 10px 14px;
+        }
+
+        .content a button:hover {
+            background-color: hsl(200, 100%, 65%);
+        }
+
+        .content a button:active {
+            background-color: hsl(200, 100%, 45%);
+        }
+
+        .content a {
+            text-decoration: none;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="company-logo">
+        <img src="https://img.magnific.com/premium-vector/word-concept-color-geometric-shapes-blog_205544-12899.jpg?semt=ais_hybrid&w=740&q=80" alt="Blog Logo">
+    </div>
+
+    <div class="content">
+        <h3>Hello Mr/Mrs {{first_name}}</h3>
+
+        <p>Welcome to our website, pls verify your email by clicking on the link below and your your otp is stated below.</p>
+
+        <p class="otp">{{otp}}</p>
+
+        <a href={{verification_link}}>
+            <button>Verify Email</button>
+        </a>
+        
+        <p>Do have a wonderful day, Admin Kevin</p>
+    </div>
+</body>
+</html>
