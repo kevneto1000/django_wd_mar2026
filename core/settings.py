@@ -85,6 +85,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://djangowdmar2026-production.up.railway.app",
+]
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "https://blog-app-bice-kappa.vercel.app",
