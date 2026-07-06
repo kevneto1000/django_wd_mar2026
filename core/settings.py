@@ -96,13 +96,6 @@ CORS_ALLOWED_ORIGINS = [
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.mysql',
-    #     'NAME': 'blog',
-    #     'USER': 'root',
-    #     'HOST': 'localhost',
-    #     'PASSWORD': 'Netoskibaba99!',
-    # }
 
     "default": dj_database_url.config(
         default=f"postgresql://{os.getenv("DB_USER")}:{os.getenv("DB_PASSWORD")}@{os.getenv("DB_HOST")}:{os.getenv("DB_PORT")}/{os.getenv("DB_NAME")}"
