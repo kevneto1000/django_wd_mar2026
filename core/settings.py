@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
-    "https://blog-app-bice-kappa.vercel.app/",
+    "https://blog-app-bice-kappa.vercel.app",
 ]
 
 # CORS_ALLOW_ALL_ORIGINS = True
