@@ -5,6 +5,8 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
+import cloudinary.uploader
+
 from .models import Blog, BlogImage
 from .serializers import BlogSerializer
 
@@ -13,6 +15,7 @@ class CreateBlogView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
+        print("=== CREATE BLOG VIEW CALLED ===")
 
         serializer = BlogSerializer(data= request.data)
 
@@ -22,14 +25,20 @@ class CreateBlogView(APIView):
 
             images = request.FILES.getlist("images")
 
+            print("FILES", request.FILES)
+            print("IMAGES", request.images)
+
             for image in images:
+                result = cloudinary.uploader.upload(image)
+
+                print(result)
 
                 BlogImage.objects.create(
                     blog=blog,
-                    image=image,
+                    image=result["secure_url"],
                 )
 
-            return Response({"message": "Blog Created"}, status=201)
+            return Response({"message": "THIS IS THE NEW CODE"}, status=201)
         return Response(serializer.errors, status=400)
 
 

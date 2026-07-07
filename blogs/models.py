@@ -1,5 +1,6 @@
 from django.db import models
 from subfolder.models import User
+# from cloudinary.models import CloudinaryField
 
 class Blog(models.Model):
 
@@ -14,7 +15,7 @@ class Blog(models.Model):
     
 class BlogImage(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name="images")
-    image = models.ImageField(upload_to="blogs/")
-
+    image = models.URLField(max_length=1000)
+    
     def __str__(self):
         return self.blog.title
