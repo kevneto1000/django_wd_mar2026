@@ -26,7 +26,7 @@ class CreateBlogView(APIView):
             images = request.FILES.getlist("images")
 
             print("FILES", request.FILES)
-            print("IMAGES", request.images)
+            print("IMAGES", images)
 
             for image in images:
                 result = cloudinary.uploader.upload(image)
