@@ -14,8 +14,11 @@ import os
 from dotenv import load_dotenv
 import dj_database_url
 import cloudinary 
+import resend
 
 load_dotenv()
+
+resend_api_key = os.getenv("RESEND_API_KEY")
 
 
 from pathlib import Path
@@ -131,6 +134,8 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER 
+
+
 
 
 # Password validation

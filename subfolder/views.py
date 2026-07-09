@@ -17,6 +17,8 @@ from django.contrib.auth import authenticate
 
 from django.core.mail import send_mail, EmailMultiAlternatives
 
+import resend
+
 import random
 
 from .models import User
@@ -104,21 +106,28 @@ def signup(request):
             }
         )
 
-        plain_text = strip_tags(html_content)
+        # plain_text = strip_tags(html_content)
 
-        email = EmailMultiAlternatives(
-            subject="Verify Your Email",
-            body=plain_text,
-            from_email=settings.EMAIL_HOST_USER,
-            to=[user.email]
-        )
+        resend.Emails.send({
+            "from": "onboarding@resend.dev",
+            "to": user.email,
+            "subject": "Verify Your Email",
+            "html": html_content
+        })
 
-        email.attach_alternative(html_content, "text/html")
+        # email = EmailMultiAlternatives(
+        #     subject="Verify Your Email",
+        #     body=plain_text,
+        #     from_email=settings.EMAIL_HOST_USER,
+        #     to=[user.email]
+        # )
 
-        try: 
-            email.send()
-        except Exception as e:
-            print(e)
+        # email.attach_alternative(html_content, "text/html")
+
+        # try: 
+        #     email.send()
+        # except Exception as e:
+        #     print(e)
 
         return Response({"message": "Registration successful. Check your email for the OTP", "user_id": user.id}, status=status.HTTP_201_CREATED)
     
