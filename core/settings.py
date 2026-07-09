@@ -24,6 +24,10 @@ cloudinary.config(
     secure=True,
 )
 
+print("CLOUDINARY_URL:", os.getenv("CLOUDINARY_URL"))
+print("CLOUDINARY_API_KEY:", os.getenv("CLOUDINARY_API_KEY"))
+print("CLOUDINARY_CLOUD_NAME:", os.getenv("CLOUDINARY_CLOUD_NAME"))
+
 from pathlib import Path
 from datetime import timedelta
 
