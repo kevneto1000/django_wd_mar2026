@@ -115,7 +115,10 @@ def signup(request):
 
         email.attach_alternative(html_content, "text/html")
 
-        email.send()
+        try: 
+            email.send()
+        except Exception as e:
+            print(e)
 
         return Response({"message": "Registration successful. Check your email for the OTP", "user_id": user.id}, status=status.HTTP_201_CREATED)
     
